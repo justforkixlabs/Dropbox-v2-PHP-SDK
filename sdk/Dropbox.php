@@ -41,7 +41,7 @@
         public static function postRequest($endpoint, $headers, $data, $json = TRUE) {
             $ch = curl_init($endpoint);
             array_push($headers, "Authorization: Bearer " . self::$token);
-            curl_setopt($ch, CURLOPT_POST, TRUE);
+            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST'); 
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
             curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
             curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
